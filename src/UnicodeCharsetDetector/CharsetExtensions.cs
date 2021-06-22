@@ -15,7 +15,7 @@ namespace UnicodeCharsetDetector
                 case Charset.Ascii:
                 case Charset.Ansi:
                 case Charset.Bom:
-                    return Encoding.Default;
+                    return Encoding.ASCII;
                 case Charset.Utf7:
                 case Charset.Utf7Bom:
                     return Encoding.UTF7;

@@ -1,0 +1,25 @@
+name: build
+
+on: [push, pull_request]
+
+defaults:
+  run:
+    working-directory: src
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core 5.0 SDK
+      uses: actions/setup-dotnet@v1
+      with:
+          dotnet-version: '5.0.x'
+    - name: Clean
+      run: dotnet clean --configuration Release && dotnet nuget locals all --clear
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore --configuration Release
+    - name: Test
+      run: dotnet test --no-build --configuration Release --verbosity normal

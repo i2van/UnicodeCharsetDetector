@@ -1,5 +1,8 @@
 using System.IO;
 
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
+
 namespace UnicodeCharsetDetector
 {
     public class Utf16CharsetDetector : CharsetDetector
@@ -28,14 +31,14 @@ namespace UnicodeCharsetDetector
 
                 if (ch1 == 0)
                 {
-                    if (ch2 == 0x0a || ch2 == 0x0d)
+                    if (ch2 is 0x0a or 0x0d)
                     {
                         ++beControlChars;
                     }
                 }
                 else if (ch2 == 0)
                 {
-                    if (ch1 == 0x0a || ch1 == 0x0d)
+                    if (ch1 is 0x0a or 0x0d)
                     {
                         ++leControlChars;
                     }
@@ -58,8 +61,8 @@ namespace UnicodeCharsetDetector
             // Checks if a buffer contains text that looks like UTF-16. This is done based the use of nulls 
             // which in ASCII/script like text can be useful to identify.
 
-            var evenNullThreshold = (numEvenNulls * 2d) / size;
-            var oddNullThreshold = (numOddNulls * 2d) / size;
+            var evenNullThreshold = numEvenNulls * 2d / size;
+            var oddNullThreshold = numOddNulls * 2d / size;
             var expectedNullThreshold = ExpectedNullPercent / 100d;
             var unexpectedNullThreshold = UnexpectedNullPercent / 100d;
 

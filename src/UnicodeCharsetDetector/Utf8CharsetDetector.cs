@@ -1,5 +1,8 @@
 using System.IO;
 
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
+
 namespace UnicodeCharsetDetector
 {
     public class Utf8CharsetDetector : CharsetDetector
@@ -33,23 +36,30 @@ namespace UnicodeCharsetDetector
                 }
 
                 int moreChars;
-                if (ch <= 127)
-                    moreChars = 0;
-                else if (ch >= 194 && ch <= 223)
-                    moreChars = 1;
-                else if (ch >= 224 && ch <= 239)
-                    moreChars = 2;
-                else if (ch >= 240 && ch <= 244)
-                    moreChars = 3;
-                else
-                    return Charset.None;
+                switch (ch)
+                {
+                    case <= 127:
+                        moreChars = 0;
+                        break;
+                    case >= 194 and <= 223:
+                        moreChars = 1;
+                        break;
+                    case >= 224 and <= 239:
+                        moreChars = 2;
+                        break;
+                    case >= 240 and <= 244:
+                        moreChars = 3;
+                        break;
+                    default:
+                        return Charset.None;
+                }
 
                 // Check secondary chars are in range if we are expecting any
                 while (moreChars > 0 && (ch = stream.ReadByte()) >= 0)
                 {
                     // Seen non-ascii chars now
                     onlySawAsciiRange = false;
-                    if (ch < 128 || ch > 191)
+                    if (ch is < 128 or > 191)
                     {
                         return Charset.None;
                     }

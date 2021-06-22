@@ -24,44 +24,17 @@ namespace UnicodeCharsetDetector
             if (buffer.Length < size)
                 throw new ArgumentException("The size is greater than the length of buffer.", nameof(size));
 
-            if (size > 3
-                && buffer[0] == 0xFF
-                && buffer[1] == 0xFE
-                && buffer[2] == 0
-                && buffer[3] == 0)
-                return Charset.Utf32LeBom; //Encoding.UTF32;
-
-            if (size > 3
-                && buffer[0] == 0
-                && buffer[1] == 0
-                && buffer[2] == 0xFE
-                && buffer[3] == 0xFF)
-                return Charset.Utf32BeBom;
-
-            if (size > 3
-                && buffer[0] == 0x2B
-                && buffer[1] == 0x2F
-                && buffer[2] == 0x76
-                && (buffer[3] == 0x38 || buffer[3] == 0x39 || buffer[3] == 0x2B || buffer[3] == 0x2F))
-                return Charset.Utf7Bom; //Encoding.UTF7;
-
-            if (size > 2
-                && buffer[0] == 0xEF
-                && buffer[1] == 0xBB
-                && buffer[2] == 0xBF)
-                return Charset.Utf8Bom; //Encoding.UTF8;
-
-            if (size > 1
-                && buffer[0] == 0xFF
-                && buffer[1] == 0xFE)
-                return Charset.Utf16LeBom; // Encoding.Unicode;
-
-            if (size > 1
-                && buffer[0] == 0xFE
-                && buffer[1] == 0xFF)
-                return Charset.Utf16BeBom; // Encoding.BigEndianUnicode;
-
-            return Charset.None;
+            return size switch
+            {
+                > 3 when buffer[0] == 0xFF && buffer[1] == 0xFE && buffer[2] == 0 && buffer[3] == 0 => Charset.Utf32LeBom,
+                > 3 when buffer[0] == 0 && buffer[1] == 0 && buffer[2] == 0xFE && buffer[3] == 0xFF => Charset.Utf32BeBom,
+                > 3 when buffer[0] == 0x2B && buffer[1] == 0x2F && buffer[2] == 0x76 &&
+                         (buffer[3] == 0x38 || buffer[3] == 0x39 || buffer[3] == 0x2B || buffer[3] == 0x2F) => Charset.Utf7Bom,
+                > 2 when buffer[0] == 0xEF && buffer[1] == 0xBB && buffer[2] == 0xBF => Charset.Utf8Bom,
+                > 1 when buffer[0] == 0xFF && buffer[1] == 0xFE => Charset.Utf16LeBom,
+                > 1 when buffer[0] == 0xFE && buffer[1] == 0xFF => Charset.Utf16BeBom,
+                _ => Charset.None
+            };
         }
 
         public override Charset Check(Stream stream)
