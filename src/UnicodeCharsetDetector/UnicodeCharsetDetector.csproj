@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.3</TargetFramework>
+    <TargetFrameworks>netstandard1.3;netstandard2.0;netstandard2.1;net45</TargetFrameworks>
     <Deterministic>true</Deterministic>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
@@ -22,7 +22,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>unicode detector detect detection utf8 utf16 utf32 bom ascii ansi</PackageTags>
     <PackageProjectUrl>https://github.com/i2van/UnicodeCharsetDetector</PackageProjectUrl>
-    <Description>Text files Unicode charset detector with and without BOM.</Description>
+    <Description>Text files Unicode charset detector w/wo BOM.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/i2van/UnicodeCharsetDetector</RepositoryUrl>
     <Copyright>Copyright © hVostt 2015, Ivan Ivon 2021</Copyright>

@@ -3,7 +3,7 @@
 [![Downloads](https://img.shields.io/nuget/dt/UnicodeCharsetDetector.Standard)](https://www.nuget.org/packages/UnicodeCharsetDetector.Standard)
 [![License](https://img.shields.io/badge/license-MIT-yellow)](https://opensource.org/licenses/MIT)
 
-# .NET Standard UnicodeCharsetDetector #
+# UnicodeCharsetDetector #
 
 ## Table of Contents ##
 
@@ -15,7 +15,7 @@
 
 ## Description ##
 
-Text files Unicode charset w/wo [BOM](https://en.wikipedia.org/wiki/Byte_order_mark) detector for .NET Standard. Encodings supported:
+Text files Unicode charset w/wo [BOM](https://en.wikipedia.org/wiki/Byte_order_mark) detector. Encodings supported:
 
 * `UTF-7`
 * `UTF-8`
