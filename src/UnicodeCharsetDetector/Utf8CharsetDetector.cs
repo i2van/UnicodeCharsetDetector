@@ -67,12 +67,9 @@ namespace UnicodeCharsetDetector
                 }
             }
 
-            if (onlySawAsciiRange)
-            {
-                return Charset.Ascii;
-            }
-
-            return Charset.Utf8;
+            return onlySawAsciiRange
+                    ? Charset.Ascii
+                    : Charset.Utf8;
         }
     }
 }

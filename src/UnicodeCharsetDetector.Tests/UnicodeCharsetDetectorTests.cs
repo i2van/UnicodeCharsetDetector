@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+
 using NUnit.Framework;
 
 namespace UnicodeCharsetDetector.Tests
@@ -67,6 +68,5 @@ namespace UnicodeCharsetDetector.Tests
                 Assert.True(fileName.StartsWith(charsetName, StringComparison.InvariantCultureIgnoreCase));
             }
         }
-
     }
 }

@@ -30,4 +30,10 @@
     <Copyright>Copyright © hVostt 2015, Ivan Ivon 2021</Copyright>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>$(AssemblyName).Tests, PublicKey=002400000480000094000000060200000024000052534131000400000100010089376495f71073bfdc0b895cc3d6f55c4310c384630aa5e59011bd2887ae7b727fc5e91c6cdc1e296003581c23e4b6062f19f51b9550ce2f0cb3068b1336cac3316836ce1d21a7ce67d17d9aae86c13192a31feafdbb0647c9bd34b6617037d5169a644faf7098677df3606f4d70a4224a1379a4acb50cc9d394dd9c13e14aac</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
 </Project>
