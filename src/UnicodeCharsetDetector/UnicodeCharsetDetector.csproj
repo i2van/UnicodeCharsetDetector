@@ -19,6 +19,7 @@
 
   <PropertyGroup>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageId>UnicodeCharsetDetector.Standard</PackageId>
     <Authors>hVostt, Ivan Ivon</Authors>
     <RepositoryType>git</RepositoryType>
@@ -26,9 +27,16 @@
     <PackageProjectUrl>https://github.com/i2van/UnicodeCharsetDetector</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/i2van/UnicodeCharsetDetector</RepositoryUrl>
-    <Copyright>Copyright © hVostt 2015, Ivan Ivon 2021</Copyright>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Copyright>Copyright © hVostt 2015, Ivan Ivon 2021-$([System.DateTime]::Now.Year)</Copyright>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath/>
+    </Content>
+  </ItemGroup>
 
   <ItemGroup>
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
