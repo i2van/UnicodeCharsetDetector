@@ -5,12 +5,24 @@ using System.IO;
 
 namespace UnicodeCharsetDetector
 {
+    /// <summary>
+    /// Represents UTF-16 charsets detector.
+    /// </summary>
     public class Utf16CharsetDetector : CharsetDetector
     {
+        /// <summary>
+        /// Gets or sets the expected binary zeroes percentage in the stream used for UTF-16 charsets detection.
+        /// </summary>
+        /// <returns>The expected binary zeroes percentage.</returns>
         public double ExpectedNullPercent { get; set; } = 70;
 
+        /// <summary>
+        /// Gets or sets the unexpected binary zeroes percentage in the stream used for UTF-16 charsets detection.
+        /// </summary>
+        /// <returns>The unexpected binary zeroes percentage.</returns>
         public double UnexpectedNullPercent { get; set; } = 10;
 
+        /// <inheritdoc />
         public override Charset Check(Stream stream)
         {
             var leControlChars = 0;
@@ -36,12 +48,9 @@ namespace UnicodeCharsetDetector
                         ++beControlChars;
                     }
                 }
-                else if (ch2 == 0)
+                else if (ch2 == 0 && ch1 is 0x0a or 0x0d)
                 {
-                    if (ch1 is 0x0a or 0x0d)
-                    {
-                        ++leControlChars;
-                    }
+                    ++leControlChars;
                 }
             }
 

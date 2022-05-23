@@ -6,8 +6,19 @@ using System.Text;
 
 namespace UnicodeCharsetDetector
 {
+    /// <summary>
+    /// Provides a set of <see langword="static" /> (<see langword="Shared" /> in Visual Basic) extension methods for charset.
+    /// </summary>
     public static class CharsetExtensions
     {
+        /// <summary>
+        /// Converts charset to encoding.
+        /// </summary>
+        /// <param name="charset">The charset to convert.</param>
+        /// <param name="addByteOrderMask"><see langword="true" /> to specify that the <see cref="M:System.Text.UnicodeEncoding.GetPreamble" /> method returns a Unicode byte order mark; otherwise, <see langword="false" />.</param>
+        /// <param name="throwOnInvalidBytes"> <see langword="true" /> to specify that an exception should be thrown when an invalid encoding is detected; otherwise, <see langword="false" />.</param>
+        /// <returns>The <see cref="Encoding"/> which corresponds to <paramref name="charset"/> specified.</returns>
+        /// <exception cref="ArgumentOutOfRangeException">If the <paramref name="charset"/> is out of range.</exception>
         public static Encoding ToEncoding(this Charset charset, bool addByteOrderMask = true, bool throwOnInvalidBytes = true) =>
             charset switch
             {
@@ -21,6 +32,11 @@ namespace UnicodeCharsetDetector
                 _ => throw new ArgumentOutOfRangeException(nameof(charset), charset, null)
             };
 
+        /// <summary>
+        /// Returns the length of the charset BOM.
+        /// </summary>
+        /// <param name="charset">The charset which BOM length to return.</param>
+        /// <returns>The length of the <paramref name="charset"/> BOM.</returns>
         public static int BomLength(this Charset charset) =>
             charset switch
             {

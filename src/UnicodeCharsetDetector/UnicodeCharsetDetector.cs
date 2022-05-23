@@ -7,19 +7,25 @@ using System.IO;
 
 namespace UnicodeCharsetDetector
 {
+    /// <summary>
+    /// Represents Unicode charsets detector which detects UTF-8 and UTF-16 charsets.
+    /// </summary>
     public class UnicodeCharsetDetector : CharsetDetector
     {
-        private readonly List<CharsetDetector> _detectors;
-
-        public UnicodeCharsetDetector()
+        private readonly List<CharsetDetector> _detectors = new()
         {
-            _detectors = new List<CharsetDetector>
-            {
-                new Utf8CharsetDetector(),
-                new Utf16CharsetDetector()
-            };
-        }
+            new Utf8CharsetDetector(),
+            new Utf16CharsetDetector()
+        };
 
+        /// <summary>
+        /// Checks the charset of the stream.
+        /// </summary>
+        /// <param name="stream">The stream which charset to check.</param>
+        /// <returns>The charset of the stream.</returns>
+        /// <exception cref="IOException">An I/O error occurred.</exception>
+        /// <exception cref="NotSupportedException">The stream does not support seeking, such as if the <see cref="FileStream" /> is constructed from a pipe or console output.</exception>
+        /// <exception cref="ObjectDisposedException">Methods were called after the stream was closed.</exception>
         public override Charset Check(Stream stream)
         {
             var startPos = stream.Position;

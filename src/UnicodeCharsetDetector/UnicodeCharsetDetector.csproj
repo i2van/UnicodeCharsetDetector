@@ -1,30 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.3;netstandard2.0;netstandard2.1;net45</TargetFrameworks>
+    <TargetFrameworks>net40;net45;netstandard1.3;netstandard2.0;netstandard2.1</TargetFrameworks>
     <Deterministic>true</Deterministic>
     <LangVersion>latest</LangVersion>
     <SignAssembly>true</SignAssembly>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <AssemblyOriginatorKeyFile>UnicodeCharsetDetector.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>..\..\bin\Debug\</OutputPath>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>..\..\bin\Release\</OutputPath>
+    <OutputPath>..\..\bin\$(Configuration)\</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>UnicodeCharsetDetector.Standard</PackageId>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <Product>Unicode Charset Detector</Product>
+    <AssemblyTitle>Text files Unicode charset detector w/wo BOM</AssemblyTitle>
+    <Description>$(AssemblyTitle).</Description>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>UnicodeCharsetDetector.Standard</PackageId>
     <Authors>hVostt, Ivan Ivon</Authors>
     <RepositoryType>git</RepositoryType>
     <PackageTags>unicode detector detect detection utf8 utf16 utf32 bom ascii ansi</PackageTags>
     <PackageProjectUrl>https://github.com/i2van/UnicodeCharsetDetector</PackageProjectUrl>
-    <Description>Text files Unicode charset detector w/wo BOM.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/i2van/UnicodeCharsetDetector</RepositoryUrl>
     <Copyright>Copyright © hVostt 2015, Ivan Ivon 2021</Copyright>

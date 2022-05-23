@@ -9,7 +9,7 @@ namespace UnicodeCharsetDetector.Tests
     public class UnicodeCharsetDetectorTests
     {
         [Test]
-        public void TestCheckBom()
+        public void CheckBom_Detection_Success()
         {
             Assert.Throws<ArgumentNullException>(() => UnicodeCharsetDetector.CheckBom(null, 0));
             Assert.Throws<ArgumentException>(() => UnicodeCharsetDetector.CheckBom(Array.Empty<byte>(), 1));
@@ -49,7 +49,7 @@ namespace UnicodeCharsetDetector.Tests
         }
 
         [Test]
-        public void TestDataFiles()
+        public void Check_ForDataFiles_Success()
         {
             var dataFolder = Path.Combine(TestContext.CurrentContext.TestDirectory, "Data");
             var testFiles = Directory.EnumerateFiles(dataFolder, "*.txt");

@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <Version>1.1.1</Version>
-    <PackageReleaseNotes>Code cleanup.</PackageReleaseNotes>
+    <Version>1.1.2</Version>
+    <PackageReleaseNotes>Added XML documentation.</PackageReleaseNotes>
   </PropertyGroup>
 </Project>

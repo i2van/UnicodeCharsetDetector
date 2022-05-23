@@ -5,10 +5,18 @@ using System.IO;
 
 namespace UnicodeCharsetDetector
 {
+    /// <summary>
+    /// Represents UTF-8 charsets detector.
+    /// </summary>
     public class Utf8CharsetDetector : CharsetDetector
     {
+        /// <summary>
+        /// Indicates that the stream is considered binary if binary zero is present in the stream.
+        /// </summary>
+        /// <returns><see langword="true" /> if binary zero is present in the stream then the stream is considered binary; otherwise, <see langword="false" />.</returns>
         public bool NullSuggestsBinary { get; set; } = true;
 
+        /// <inheritdoc />
         public override Charset Check(Stream stream)
         {
             // UTF8 Valid sequences

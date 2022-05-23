@@ -2,6 +2,12 @@ name: build
 
 on: [push, pull_request]
 
+env:
+  NAME: UnicodeCharsetDetector
+  SLN_CONFIG: Release
+  BIN_POSTFIX: .Bin
+  RETENTION_DAYS: 1
+
 defaults:
   run:
     working-directory: src
@@ -9,17 +15,32 @@ defaults:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core 5.0 SDK
+
+    - name: Setup .NET Core 6.0 SDK
       uses: actions/setup-dotnet@v1
       with:
-          dotnet-version: '5.0.x'
+          dotnet-version: '6.0.x'
+
+    - name: Checkout
+      uses: actions/checkout@v2
+
     - name: Clean
-      run: dotnet clean --configuration Release && dotnet nuget locals all --clear
+      run: dotnet clean --configuration ${{ env.SLN_CONFIG }} && dotnet nuget locals all --clear
+
     - name: Restore dependencies
       run: dotnet restore
+
     - name: Build
-      run: dotnet build --no-restore --configuration Release
+      run: dotnet build --no-restore --configuration ${{ env.SLN_CONFIG }}
+
     - name: Test
-      run: dotnet test --no-build --configuration Release --verbosity normal
+      run: dotnet test --no-build --configuration ${{ env.SLN_CONFIG }} --verbosity normal
+
+    - name: Publish
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ env.NAME }}${{ env.BIN_POSTFIX }}
+        path: bin/${{ env.SLN_CONFIG }}/${{ env.NAME }}*.nupkg
+        retention-days: ${{ env.RETENTION_DAYS }}
