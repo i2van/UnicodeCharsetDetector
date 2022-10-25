@@ -19,12 +19,12 @@ jobs:
     steps:
 
     - name: Setup .NET Core 6.0 SDK
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v3
       with:
           dotnet-version: '6.0.x'
 
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Clean
       run: dotnet clean --configuration ${{ env.SLN_CONFIG }} && dotnet nuget locals all --clear
@@ -39,7 +39,7 @@ jobs:
       run: dotnet test --no-build --configuration ${{ env.SLN_CONFIG }} --verbosity normal
 
     - name: Publish
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: ${{ env.NAME }}${{ env.BIN_POSTFIX }}
         path: bin/${{ env.SLN_CONFIG }}/${{ env.NAME }}*.nupkg
