@@ -18,10 +18,10 @@ jobs:
 
     steps:
 
-    - name: Setup .NET Core 6.0 SDK
+    - name: Setup .NET 7.0 SDK
       uses: actions/setup-dotnet@v3
       with:
-          dotnet-version: '6.0.x'
+          dotnet-version: '7.0.x'
 
     - name: Checkout
       uses: actions/checkout@v3
