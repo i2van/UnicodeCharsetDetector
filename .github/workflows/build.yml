@@ -26,9 +26,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Clean
-      run: dotnet clean --configuration ${{ env.SLN_CONFIG }} && dotnet nuget locals all --clear
-
     - name: Restore dependencies
       run: dotnet restore
 
@@ -42,5 +39,5 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: ${{ env.NAME }}${{ env.BIN_POSTFIX }}
-        path: bin/${{ env.SLN_CONFIG }}/${{ env.NAME }}*.nupkg
+        path: bin/${{ env.SLN_CONFIG }}/${{ env.NAME }}*.*nupkg
         retention-days: ${{ env.RETENTION_DAYS }}

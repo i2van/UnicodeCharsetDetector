@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <Version>1.1.4</Version>
-    <PackageReleaseNotes>Added XML documentation.</PackageReleaseNotes>
+    <Version>1.1.5</Version>
+    <PackageReleaseNotes>Added SourceLink support.</PackageReleaseNotes>
   </PropertyGroup>
 </Project>

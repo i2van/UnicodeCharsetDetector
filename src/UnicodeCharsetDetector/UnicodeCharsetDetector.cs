@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-// ReSharper disable UnusedType.Global
+// ReSharper disable once UnusedMember.Global
 // ReSharper disable once MemberCanBePrivate.Global
 
 namespace UnicodeCharsetDetector
