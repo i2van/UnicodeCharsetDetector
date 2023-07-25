@@ -1,9 +1,9 @@
+# UnicodeCharsetDetector #
+
 [![Latest build](https://github.com/i2van/UnicodeCharsetDetector/workflows/build/badge.svg)](https://github.com/i2van/UnicodeCharsetDetector/actions)
 [![NuGet](https://img.shields.io/nuget/v/UnicodeCharsetDetector.Standard)](https://www.nuget.org/packages/UnicodeCharsetDetector.Standard)
 [![Downloads](https://img.shields.io/nuget/dt/UnicodeCharsetDetector.Standard)](https://www.nuget.org/packages/UnicodeCharsetDetector.Standard)
 [![License](https://img.shields.io/badge/license-MIT-yellow)](https://opensource.org/licenses/MIT)
-
-# UnicodeCharsetDetector #
 
 ## Table of Contents ##
 
