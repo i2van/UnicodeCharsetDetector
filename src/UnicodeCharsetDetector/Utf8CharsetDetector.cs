@@ -52,10 +52,10 @@ namespace UnicodeCharsetDetector
                     case >= 194 and <= 223:
                         moreChars = 1;
                         break;
-                    case >= 224 and <= 239:
+                    case <= 239:
                         moreChars = 2;
                         break;
-                    case >= 240 and <= 244:
+                    case <= 244:
                         moreChars = 3;
                         break;
                     default:

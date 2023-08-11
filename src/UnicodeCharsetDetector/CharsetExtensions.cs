@@ -29,7 +29,7 @@ namespace UnicodeCharsetDetector
                 Charset.Utf16Be or Charset.Utf16BeBom => new UnicodeEncoding(true, addByteOrderMask, throwOnInvalidBytes),
                 Charset.Utf32Le or Charset.Utf32LeBom => new UTF32Encoding(false, addByteOrderMask, throwOnInvalidBytes),
                 Charset.Utf32Be or Charset.Utf32BeBom => new UTF32Encoding(true, addByteOrderMask, throwOnInvalidBytes),
-                _ => throw new ArgumentOutOfRangeException(nameof(charset), charset, null)
+                _ => throw new ArgumentOutOfRangeException(nameof(charset), charset, $"Unknown charset {charset}")
             };
 
         /// <summary>
