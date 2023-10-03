@@ -18,6 +18,20 @@ jobs:
 
     steps:
 
+    # Setup
+
+    - name: Setup .NET Core 3.1 SDK
+      uses: actions/setup-dotnet@v3
+      with:
+          dotnet-version: '3.1.x'
+
+    - name: Setup .NET 5.0 SDK
+      uses: actions/setup-dotnet@v3
+      with:
+          dotnet-version: '5.0.x'
+
+    # Build
+
     - name: Checkout
       uses: actions/checkout@v3
 
@@ -29,6 +43,8 @@ jobs:
 
     - name: Test
       run: dotnet test --no-build --configuration ${{ env.SLN_CONFIG }} --verbosity normal
+
+    # Upload artifacts
 
     - name: Publish
       uses: actions/upload-artifact@v3

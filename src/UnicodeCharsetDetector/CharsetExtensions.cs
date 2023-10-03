@@ -23,7 +23,9 @@ public static class CharsetExtensions
         charset switch
         {
             Charset.None or Charset.Ascii or Charset.Ansi or Charset.Bom => Encoding.ASCII,
+#pragma warning disable SYSLIB0001
             Charset.Utf7 or Charset.Utf7Bom => Encoding.UTF7,
+#pragma warning restore SYSLIB0001
             Charset.Utf8 or Charset.Utf8Bom => new UTF8Encoding(addByteOrderMask, throwOnInvalidBytes),
             Charset.Utf16Le or Charset.Utf16LeBom => new UnicodeEncoding(false, addByteOrderMask, throwOnInvalidBytes),
             Charset.Utf16Be or Charset.Utf16BeBom => new UnicodeEncoding(true, addByteOrderMask, throwOnInvalidBytes),

@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <Version>1.1.6</Version>
-    <PackageReleaseNotes>Refactoring.</PackageReleaseNotes>
+    <Version>1.1.7</Version>
+    <PackageReleaseNotes>Added .NET 6, .NET 7 builds.</PackageReleaseNotes>
   </PropertyGroup>
 </Project>

@@ -12,7 +12,7 @@ public class UnicodeCharsetDetectorTests
     public void CheckBom_Detection_Success()
     {
         Assert.Throws<ArgumentNullException>(() => UnicodeCharsetDetector.CheckBom(null, 0));
-        Assert.Throws<ArgumentException>(() => UnicodeCharsetDetector.CheckBom(Array.Empty<byte>(), 1));
+        Assert.Throws<ArgumentException>(() => UnicodeCharsetDetector.CheckBom(new byte[0], 1));
 
         // UTF-7
         Assert.AreEqual(Charset.Utf7Bom, UnicodeCharsetDetector.CheckBom(new byte[] { 0x2B, 0x2F, 0x76, 0x38 }, 4));
