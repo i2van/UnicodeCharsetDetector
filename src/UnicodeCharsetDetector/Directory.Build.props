@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <Version>1.1.7</Version>
-    <PackageReleaseNotes>Added .NET 6, .NET 7 builds.</PackageReleaseNotes>
+    <Version>1.1.8</Version>
+    <PackageReleaseNotes>Added .NET 8.0 build.</PackageReleaseNotes>
   </PropertyGroup>
 </Project>

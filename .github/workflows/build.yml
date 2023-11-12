@@ -21,31 +21,32 @@ jobs:
     # Setup
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v3.2.0
       with:
         dotnet-version: |
           3.1.x
           5.0.x
+          8.0.x
 
     # Build
 
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4.1.1
 
     - name: Restore dependencies
       run: dotnet restore
 
     - name: Build
-      run: dotnet build --no-restore --configuration ${{ env.SLN_CONFIG }}
+      run: dotnet build --no-restore --configuration ${{env.SLN_CONFIG}}
 
     - name: Test
-      run: dotnet test --no-build --configuration ${{ env.SLN_CONFIG }} --verbosity normal
+      run: dotnet test --no-build --configuration ${{env.SLN_CONFIG}} --verbosity normal
 
     # Upload artifacts
 
     - name: Publish
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v3.1.3
       with:
-        name: ${{ env.NAME }}${{ env.BIN_POSTFIX }}
-        path: bin/${{ env.SLN_CONFIG }}/${{ env.NAME }}*.*nupkg
-        retention-days: ${{ env.RETENTION_DAYS }}
+        name: ${{env.NAME}}${{env.BIN_POSTFIX}}
+        path: bin/${{env.SLN_CONFIG}}/${{env.NAME}}*.*nupkg
+        retention-days: ${{env.RETENTION_DAYS}}

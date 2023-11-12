@@ -48,4 +48,4 @@ var encoding = charset.ToEncoding();
 
 ## License ##
 
-[MIT](https://opensource.org/licenses/MIT), see [LICENSE](LICENSE) file for details.
+* [LICENSE](https://github.com/i2van/UnicodeCharsetDetector/blob/master/LICENSE) ([MIT](https://opensource.org/licenses/MIT))
