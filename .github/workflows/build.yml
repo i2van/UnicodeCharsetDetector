@@ -18,7 +18,7 @@ jobs:
 
     steps:
 
-    # Setup
+    # Set up
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v4.0.0
@@ -28,16 +28,22 @@ jobs:
           5.0.x
           8.0.x
 
-    # Build
+    # Check out
 
-    - name: Checkout ${{env.NAME}}
+    - name: Check out ${{env.NAME}}
       uses: actions/checkout@v4.1.1
+
+    # Restore
 
     - name: Restore ${{env.NAME}}
       run: dotnet restore
 
+    # Build
+
     - name: Build ${{env.NAME}} ${{env.SLN_CONFIG}}
       run: dotnet build --no-restore --configuration ${{env.SLN_CONFIG}}
+
+    # Test
 
     - name: Test ${{env.NAME}} ${{env.SLN_CONFIG}}
       run: dotnet test --no-build --configuration ${{env.SLN_CONFIG}} --verbosity normal
