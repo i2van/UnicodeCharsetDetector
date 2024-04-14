@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31410.357
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34804.81
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnicodeCharsetDetector", "UnicodeCharsetDetector\UnicodeCharsetDetector.csproj", "{9FC26F5F-1EF0-4BBA-970A-4364AB3ADD3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnicodeCharsetDetector", "UnicodeCharsetDetector\UnicodeCharsetDetector.csproj", "{9FC26F5F-1EF0-4BBA-970A-4364AB3ADD3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnicodeCharsetDetector.Tests", "UnicodeCharsetDetector.Tests\UnicodeCharsetDetector.Tests.csproj", "{9F442C31-9A7C-406C-BCE8-DED036FDF049}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnicodeCharsetDetector.Tests", "UnicodeCharsetDetector.Tests\UnicodeCharsetDetector.Tests.csproj", "{9F442C31-9A7C-406C-BCE8-DED036FDF049}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnicodeCharsetDetector.Example", "UnicodeCharsetDetector.Example\UnicodeCharsetDetector.Example.csproj", "{5624F1D4-A225-46F2-9E2D-94163F499587}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnicodeCharsetDetector.Example", "UnicodeCharsetDetector.Example\UnicodeCharsetDetector.Example.csproj", "{5624F1D4-A225-46F2-9E2D-94163F499587}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
