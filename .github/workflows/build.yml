@@ -48,6 +48,16 @@ jobs:
     - name: Test ${{env.NAME}} ${{env.SLN_CONFIG}}
       run: dotnet test --no-build --configuration ${{env.SLN_CONFIG}} --verbosity normal
 
+    # Create test report
+
+    - name: Create ${{env.NAME}} ${{env.SLN_CONFIG}} test report
+      uses: dorny/test-reporter@v1.9.1
+      if: ${{success() || failure()}}
+      with:
+        name: tests
+        path: '**/*.trx'
+        reporter: dotnet-trx
+
     # Upload artifacts
 
     - name: Publish ${{env.NAME}} ${{env.SLN_CONFIG}}
