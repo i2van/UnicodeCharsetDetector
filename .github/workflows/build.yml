@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 env:
   NAME: UnicodeCharsetDetector
-  SLN_CONFIG: Release
+  CONFIG: Release
   BIN_POSTFIX: .Bin
   RETENTION_DAYS: 1
 
@@ -21,7 +21,7 @@ jobs:
     # Set up
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v4.0.0
+      uses: actions/setup-dotnet@v4.0.1
       with:
         dotnet-version: |
           3.1.x
@@ -31,26 +31,21 @@ jobs:
     # Check out
 
     - name: Check out ${{env.NAME}}
-      uses: actions/checkout@v4.1.1
-
-    # Restore
-
-    - name: Restore ${{env.NAME}}
-      run: dotnet restore
+      uses: actions/checkout@v4.2.1
 
     # Build
 
-    - name: Build ${{env.NAME}} ${{env.SLN_CONFIG}}
-      run: dotnet build --no-restore --configuration ${{env.SLN_CONFIG}}
+    - name: Build ${{env.NAME}} ${{env.CONFIG}}
+      run: dotnet build --configuration ${{env.CONFIG}}
 
     # Test
 
-    - name: Test ${{env.NAME}} ${{env.SLN_CONFIG}}
-      run: dotnet test --no-build --configuration ${{env.SLN_CONFIG}} --verbosity normal
+    - name: Test ${{env.NAME}} ${{env.CONFIG}}
+      run: dotnet test --no-build --configuration ${{env.CONFIG}} --verbosity normal
 
     # Create test report
 
-    - name: Create ${{env.NAME}} ${{env.SLN_CONFIG}} test report
+    - name: Create ${{env.NAME}} ${{env.CONFIG}} test report
       uses: dorny/test-reporter@v1.9.1
       if: ${{success() || failure()}}
       with:
@@ -60,9 +55,9 @@ jobs:
 
     # Upload artifacts
 
-    - name: Publish ${{env.NAME}} ${{env.SLN_CONFIG}}
-      uses: actions/upload-artifact@v4.3.0
+    - name: Publish ${{env.NAME}} ${{env.CONFIG}}
+      uses: actions/upload-artifact@v4.4.3
       with:
         name: ${{env.NAME}}${{env.BIN_POSTFIX}}
-        path: bin/${{env.SLN_CONFIG}}/${{env.NAME}}*.*nupkg
+        path: bin/${{env.CONFIG}}/${{env.NAME}}.*.*nupkg
         retention-days: ${{env.RETENTION_DAYS}}
