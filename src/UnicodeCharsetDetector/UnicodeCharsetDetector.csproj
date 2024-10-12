@@ -28,6 +28,7 @@
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <Product>Unicode Charset Detector</Product>
     <AssemblyTitle>Text files Unicode charset detector w/wo BOM</AssemblyTitle>
+    <Title>$(Product)</Title>
     <Description>$(AssemblyTitle).</Description>
   </PropertyGroup>
 
