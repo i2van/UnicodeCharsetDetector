@@ -12,11 +12,11 @@ namespace UnicodeCharsetDetector;
 /// </summary>
 public class UnicodeCharsetDetector : CharsetDetector
 {
-    private readonly List<CharsetDetector> _detectors = new()
-    {
+    private readonly List<CharsetDetector> _detectors =
+    [
         new Utf8CharsetDetector(),
         new Utf16CharsetDetector()
-    };
+    ];
 
     /// <inheritdoc />
     public override Charset Check(Stream stream)
