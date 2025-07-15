@@ -49,7 +49,7 @@ jobs:
     # Create test report
 
     - name: Create ${{env.NAME}} ${{env.CONFIG}} test report
-      uses: dorny/test-reporter@v2.1.0
+      uses: dorny/test-reporter@v2.1.1
       if: ${{success() || failure()}}
       with:
         name: tests
