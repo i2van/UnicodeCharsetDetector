@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <Version>1.1.10</Version>
-    <PackageReleaseNotes>.NET 9 build.</PackageReleaseNotes>
+    <Version>1.10.0</Version>
+    <PackageReleaseNotes>.NET 10 support.</PackageReleaseNotes>
   </PropertyGroup>
 </Project>
